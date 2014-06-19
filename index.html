@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App</title>
+	<meta name="description" content="Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App">
+	<meta name="author" content="">
+	<meta name="generator" content="slidify" />
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
+  
+</head>
+<body style='display: none'>
+	<section class='slides layout-regular template-regular'>
+     <article class="" id="slide-1" style="background:;">
+  <h3></h3>
+  <p>Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App</p>
+
+<p>Project for Coursera Developing Data Products</p>
+
+</article>
+
+<article class="" id="slide-2" style="background:;">
+  <h3></h3>
+  <p>Fuel Economy Data</p>
+
+<p>Description</p>
+
+<p>The <a href="http://fueleconomy.gov">http://fueleconomy.gov</a> website, run by the U.S. Department of Energy&#39;s Office of Energy Efficiency and Renewable Energy and the U.S. Environmental Protection Agency, lists different estimates of fuel economy for passenger cars and trucks. For each vehicle, various characteristics are recorded such as the engine displacement or number of cylinders. Along with these values, laboratory measurements are made for the city and highway miles per gallon (MPG) of the car.</p>
+
+</article>
+
+<article class="" id="slide-3" style="background:;">
+  <h3></h3>
+  <pre><code class="r">data(FuelEconomy)
+summary(cars2012)
+</code></pre>
+
+<pre><code>##     EngDispl        NumCyl      Transmission       FE      
+##  Min.   :1.30   Min.   : 4.0   M6     :19    Min.   :21.6  
+##  1st Qu.:1.80   1st Qu.: 4.0   S6     :19    1st Qu.:31.8  
+##  Median :2.50   Median : 5.0   A6     :12    Median :38.3  
+##  Mean   :3.16   Mean   : 5.7   A5     :10    Mean   :39.7  
+##  3rd Qu.:4.20   3rd Qu.: 7.0   A7     :10    3rd Qu.:49.0  
+##  Max.   :6.50   Max.   :12.0   M5     : 5    Max.   :62.8  
+##                                (Other):20                  
+##          AirAspirationMethod    NumGears     TransLockup   
+##  NaturallyAspirated:71       Min.   :1.00   Min.   :0.000  
+##  Supercharged      : 4       1st Qu.:6.00   1st Qu.:0.000  
+##  Turbocharged      :20       Median :6.00   Median :1.000  
+##                              Mean   :5.87   Mean   :0.695  
+##                              3rd Qu.:6.00   3rd Qu.:1.000  
+##                              Max.   :8.00   Max.   :1.000  
+##                                                            
+##  TransCreeperGear                  DriveDesc  IntakeValvePerCyl
+##  Min.   :0        AllWheelDrive         :13   Min.   :1.00     
+##  1st Qu.:0        FourWheelDrive        :10   1st Qu.:2.00     
+##  Median :0        ParttimeFourWheelDrive: 0   Median :2.00     
+##  Mean   :0        TwoWheelDriveFront    :44   Mean   :1.93     
+##  3rd Qu.:0        TwoWheelDriveRear     :28   3rd Qu.:2.00     
+##  Max.   :0                                    Max.   :2.00     
+##                                                                
+##  ExhaustValvesPerCyl                    CarlineClassDesc VarValveTiming 
+##  Min.   :1.00        2Seaters                   :16      Min.   :0.000  
+##  1st Qu.:2.00        CompactCars                :15      1st Qu.:1.000  
+##  Median :2.00        SubcompactCars             :12      Median :1.000  
+##  Mean   :1.93        MinicompactCars            :11      Mean   :0.905  
+##  3rd Qu.:2.00        MidsizeCars                :10      3rd Qu.:1.000  
+##  Max.   :2.00        SpecialPurposeVehicleSUV4WD: 8      Max.   :1.000  
+##                      (Other)                    :23                     
+##   VarValveLift  
+##  Min.   :0.000  
+##  1st Qu.:0.000  
+##  Median :0.000  
+##  Mean   :0.316  
+##  3rd Qu.:1.000  
+##  Max.   :1.000  
+## 
+</code></pre>
+
+</article>
+
+<article class="" id="slide-4" style="background:;">
+  <h3></h3>
+  <p>Predictors extracted from the website include: EngDispl, NumCyl, Transmission, AirAspirationMethod, NumGears, TransLockup, TransCreeperGear, DriveDesc, IntakeValvePerCyl, ExhaustValvesPerCyl, CarlineClassDesc, VarValveTiming and VarValveLift. The outcome used in the book is in column FE and is the unadjusted highway data.</p>
+
+<p>cars2010<br>
+data in cars from model year 2010.</p>
+
+<p>cars2011<br>
+cars introduced in 2011 that were not in the model year 2010 data.</p>
+
+<p>cars2012<br>
+cars introduced in 2012 that were not in the model year 2010 or 2011 data</p>
+
+</article>
+
+<article class="" id="slide-5" style="background:;">
+  <h3></h3>
+  
+</article>
+
+  </section>
+</body>
+  <!-- LOAD JAVASCRIPTS  -->
+	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+	</html>
