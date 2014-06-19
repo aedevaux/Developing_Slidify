@@ -4,7 +4,7 @@ Using k-Means Clustering in a Shiny App"
 subtitle    : "Project for Coursera Developing Data Products"
 author      : "Anne"
 job         : 
-framework   : html5slides        # {io2012, html5slides, shower, dzslides, ...}
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}

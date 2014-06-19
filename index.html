@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset='utf-8'>
-	<title>Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App</title>
-	<meta name="description" content="Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App">
-	<meta name="author" content="Anne">
-	<meta name="generator" content="slidify" />
-	
-	<!-- LOAD STYLE SHEETS -->
-	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
-	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
+  <title>Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App">
+  <meta name="author" content="Anne">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
   
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
 </head>
-<body style='display: none'>
-	<section class='slides layout-regular template-regular'>
-     <article class="" id="slide-1" style="background:;">
-  <h3>About the Fuel Economy Data Sets</h3>
-  <p>The <a href="http://fueleconomy.gov">http://fueleconomy.gov</a> website, run by the U.S. Department of Energy&#39;s Office of Energy Efficiency and Renewable Energy and the U.S. Environmental Protection Agency, lists different estimates of fuel economy for passenger cars and trucks. For each vehicle, various characteristics are recorded such as the engine displacement or number of cylinders. Along with these values, laboratory measurements are made for the city and highway miles per gallon (MPG) of the car.</p>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Investigating the Fuel Economy Dataset Using k-Means Clustering in a Shiny App</h1>
+    <h2>Project for Coursera Developing Data Products</h2>
+    <p>Anne<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
 
-</article>
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h1>About the Fuel Economy Data Sets</h1>
+  </hgroup>
+  <article data-timings="">
+    <p>The <a href="http://fueleconomy.gov">http://fueleconomy.gov</a> website, run by the U.S. Department of Energy&#39;s Office of Energy Efficiency and Renewable Energy and the U.S. Environmental Protection Agency, lists different estimates of fuel economy for passenger cars and trucks. For each vehicle, various characteristics are recorded such as the engine displacement or number of cylinders. Along with these values, laboratory measurements are made for the city and highway miles per gallon (MPG) of the car.</p>
 
-<article class="" id="slide-2" style="background:;">
-  <h3>A quick look at the head of the data set</h3>
-  <pre><code class="r">data(FuelEconomy)
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h1>A quick look at the head of the data set</h1>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">data(FuelEconomy)
 head(cars2012)
 </code></pre>
 
@@ -49,11 +84,13 @@ head(cars2012)
 ## 2230                   2         2Seaters              1            1
 </code></pre>
 
-</article>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<article class="" id="slide-3" style="background:;">
-  <h3></h3>
-  <p>Predictors extracted from the website include: EngDispl, NumCyl, Transmission, AirAspirationMethod, NumGears, TransLockup, TransCreeperGear, DriveDesc, IntakeValvePerCyl, ExhaustValvesPerCyl, CarlineClassDesc, VarValveTiming and VarValveLift. The outcome used in the book is in column FE and is the unadjusted highway data.</p>
+<slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p>Predictors extracted from the website include: EngDispl, NumCyl, Transmission, AirAspirationMethod, NumGears, TransLockup, TransCreeperGear, DriveDesc, IntakeValvePerCyl, ExhaustValvesPerCyl, CarlineClassDesc, VarValveTiming and VarValveLift. The outcome used in the book is in column FE and is the unadjusted highway data.</p>
 
 <table><thead>
 <tr>
@@ -75,26 +112,75 @@ head(cars2012)
 </tr>
 </tbody></table>
 
-</article>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<article class="" id="slide-4" style="background:;">
-  <h3>k-Means Clustering</h3>
-  <p>k-means clustering is a method of vector quantization, originally from signal processing, that is popular for cluster analysis in data mining. </p>
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h1>k-Means Clustering</h1>
+  </hgroup>
+  <article data-timings="">
+    <p>k-means clustering is a method of vector quantization, originally from signal processing, that is popular for cluster analysis in data mining. </p>
 
-</article>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<article class="" id="slide-5" style="background:;">
-  <h3></h3>
-  
-</article>
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-  </section>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About the Fuel Economy Data Sets'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='A quick look at the head of the data set'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title=''>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='k-Means Clustering'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
 </body>
-  <!-- LOAD JAVASCRIPTS  -->
-	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
-	<!-- LOAD HIGHLIGHTER JS FILES -->
-	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
-	 
-	</html>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
